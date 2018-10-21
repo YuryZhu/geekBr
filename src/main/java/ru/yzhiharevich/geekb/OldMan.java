@@ -1,7 +1,13 @@
 package ru.yzhiharevich.geekb;
 
 public class OldMan extends Members {
-    public OldMan(String name) {
-        super("OldMan", name, 10, 3, 3);
+    int hightofjump = 10;
+    int distanceofrun = 20;
+    int distanceofswim = 10;
+    String name = "OldMan";
+
+    public int[] getteammate() {
+        int[] ttc = new int[]{distanceofrun, distanceofswim, hightofjump};
+        return ttc;
     }
 }
