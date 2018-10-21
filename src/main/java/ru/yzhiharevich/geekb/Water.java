@@ -1,11 +1,16 @@
 package ru.yzhiharevich.geekb;
 
-import java.util.Random;
 
 public class Water extends Obstacle {
-    protected int distanceOfSwim() {
-        int distance = new Randomiser().randomiser(10);
+    int distance;
+
+    public Water() {
+        this.distance = new Randomiser().randomiser(10);
         System.out.println("Swim distance = " + distance + " kilometers");
-        return distance;
+    }
+
+    @Override
+    public void doit(Competitor competitor) {
+        competitor.swim(distance);
     }
 }

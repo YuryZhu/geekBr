@@ -1,38 +1,37 @@
 package ru.yzhiharevich.geekb;
 
 public class Team {
-    OldLady oldLady = new OldLady();
-    OldMan oldMan = new OldMan();
-    SportsmanA1 sportsmanA1 = new SportsmanA1();
-    Boy boy = new Boy();
-
-    public int[][] teammates() {
-
-        int[][] ttc = {oldMan.getteammate(), oldLady.getteammate(), sportsmanA1.getteammate(), boy.getteammate()};
-        return ttc;
+    Competitor[] competitors;
+    public Team() {
+        createTeam();
     }
 
-    public void showTeamMates(String teamname) {
-        teamname = "Pobeda";
-        System.out.println("The name of the team is " + teamname);
-        System.out.println("New Team was created and the new Members are " + oldMan.name + " and "
-                + oldLady.name + " and " + sportsmanA1.name + " and " + boy.name);
+    public Competitor[] createTeam() {
+        Competitor[] competitors = {new OldLady("Елена Петровна"), new OldMan("Виктор Петрович"), new SportsmanA1("Николай"), new Boy("Пашка")};
+        this.competitors = competitors;
+        return competitors;
     }
 
-    public void showresult(int mate) {
+    public void showTeamMates(String teamName) {
+        System.out.println("The name of the team is " + teamName);
+        System.out.println("New Team was created and the new Members are " + competitors[0].getName() + " and " + competitors[1].getName()
+                + " and " + competitors[2].getName() + " and " + competitors[3].getName());
+    }
+
+    public void showResult(int mate) {
         String name = "";
         switch (mate) {
             case (1):
-                name = oldMan.name;
+                name = competitors[0].getName();
                 break;
             case (2):
-                name = oldLady.name;
+                name = competitors[1].getName();
                 break;
             case (3):
-                name = sportsmanA1.name;
+                name = competitors[2].getName();
                 break;
             case (4):
-                name = boy.name;
+                name = competitors[3].getName();
                 break;
         }
         System.out.println("The member " + name + " has successful passed the obstacles");
